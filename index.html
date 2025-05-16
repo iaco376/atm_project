@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATM Demo</title>
+  <style>
+    body {
+      background-color: #1d1f20;
+      font-family: 'Courier New', Courier, monospace;
+      color: #d6d8db;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100vh;
+    }
+    #welcomeScreen, #loginScreen, #atmMenu, #adminMenu {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background-color: #141414;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #ffcc00;
+      padding: 20px;
+      width: 300px;
+      display: none;
+    }
+    #welcomeScreen {
+      display: block;
+    }
+    input, button {
+      background-color: #2a2a2a;
+      border: 1px solid #ffcc00;
+      color: #ffcc00;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      width: 90%;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 16px;
+    }
+    button {
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ffcc00;
+      color: #1d1f20;
+    }
+    #loginError {
+      color: #ff9999;
+      font-weight: bold;
+      margin-top: 10px;
+      min-height: 20px;
+    }
+    #outputMessage {
+      margin-top: 15px;
+      min-height: 20px;
+      font-size: 14px;
+      color: #eee;
+    }
+    #welcomeText {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <!-- Ecranul de bun venit -->
+  <div id="welcomeScreen">
+    <h1>Bine ai venit la ATM!</h1>
+    <p>Apasă orice tastă pentru a continua...</p>
+  </div>
+
+  <!-- Ecranul de login -->
+  <div id="loginScreen">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" name="username" placeholder="Nume utilizator" autocomplete="username" />
+      <input type="password" id="password" name="password" placeholder="Parolă" autocomplete="current-password" />
+      <button type="submit" id="loginBtn">Conectare</button>
+    </form>
+    <div id="loginError"></div>
+    <div id="outputMessage"></div>
+    <div id="welcomeText"></div>
+  </div>
+
+  <!-- Meniul client -->
+  <div id="atmMenu" style="display:none;">
+    <h2>ATM - Client</h2>
+    <button id="btnViewInfo">Vezi sold</button><br />
+    <button id="btnDeposit">Depune bani</button><br />
+    <button id="btnWithdraw">Retrage bani</button><br />
+    <button id="btnTransfer">Transferă bani</button><br />
+    <button id="btnTransactions">Istoric tranzacții</button><br />
+    <button id="btnLogout">Deconectare</button>
+    <div id="outputMessage"></div>
+  </div>
+
+  <!-- Meniul admin -->
+  <div id="adminMenu" style="display:none;">
+    <h2>ATM - Admin</h2>
+    <button id="btnCreareCont">Creare cont nou</button><br />
+    <button id="btnListareConturi">Listare conturi</button><br />
+    <button id="btnInchidereCont">Închidere cont</button><br />
+    <button id="btnDepozite">Depozite bancare</button><br />
+    <button id="btnConturiCurente">Conturi curente</button><br />
+    <button id="btnLogoutAdmin">Deconectare Admin</button>
+    <div id="outputMessage"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
